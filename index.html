@@ -65,10 +65,11 @@
 
     <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md bg-black/30 border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-24">
+            <div class="flex items-center justify-between h-20 md:h-24">
                 <div class="flex-shrink-0">
-                    <span class="font-serif text-2xl tracking-[0.2em] font-bold">WAIGERA<span class="text-luxury-red">.CO</span></span>
+                    <span class="font-serif text-xl md:text-2xl tracking-[0.2em] font-bold">WAIGERA<span class="text-luxury-red">.CO</span></span>
                 </div>
+                
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#brands" class="hover:text-luxury-red transition-colors text-sm tracking-widest uppercase">Brands</a>
@@ -76,22 +77,33 @@
                         <a href="#" class="px-6 py-2 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest uppercase">Contact</a>
                     </div>
                 </div>
+
                 <div class="-mr-2 flex md:hidden">
-                    <button class="text-white hover:text-luxury-red p-2 text-2xl"><i class="fas fa-bars"></i></button>
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-luxury-red p-2 text-2xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full left-0 top-20">
+            <div class="px-4 pt-4 pb-6 space-y-4 flex flex-col text-center">
+                <a href="#brands" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-sm tracking-widest uppercase py-2">Brands</a>
+                <a href="#inventory" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-sm tracking-widest uppercase py-2">Collection</a>
+                <a href="#" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-sm tracking-widest uppercase py-2">Contact</a>
             </div>
         </div>
     </nav>
 
-    <main class="relative z-10 pt-24">
+    <main class="relative z-10 pt-20">
 
         <section class="min-h-screen flex items-center justify-center text-center px-4">
             <div class="max-w-4xl space-y-6 animate-fade-in-up">
-                <p class="text-luxury-red tracking-[0.3em] uppercase text-sm font-bold mb-4">Redefining Luxury Imports</p>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight text-shadow">
+                <p class="text-luxury-red tracking-[0.3em] uppercase text-xs md:text-sm font-bold mb-4">Redefining Luxury Imports</p>
+                <h1 class="font-serif text-4xl md:text-7xl lg:text-8xl font-bold leading-tight text-shadow">
                     Drive the <br> <span class="italic text-gray-300">Extraordinary</span>
                 </h1>
-                <p class="text-gray-300 text-lg md:text-xl font-light tracking-wide max-w-2xl mx-auto pt-4">
+                <p class="text-gray-300 text-base md:text-xl font-light tracking-wide max-w-2xl mx-auto pt-4">
                     Premium vehicles sourced globally. Delivered to your doorstep in Kenya.
                 </p>
                 <div class="pt-10">
@@ -113,32 +125,32 @@
                     <div class="h-0.5 w-16 bg-luxury-red mx-auto mt-4"></div>
                 </div>
 
-                <div class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar md:justify-center">
+                <div class="flex overflow-x-auto gap-4 md:gap-8 pb-8 snap-x snap-mandatory no-scrollbar md:justify-center">
                     
-                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
+                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[400px] md:h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
                         <div class="z-10 mb-8 p-6 bg-black/30 rounded-full backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 border border-white/5">
-                            <img src="https://cdn.simpleicons.org/mercedes/white" alt="Mercedes" class="w-16 h-16 drop-shadow-lg">
+                            <img src="https://cdn.simpleicons.org/mercedes/white" alt="Mercedes" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-lg">
                         </div>
-                        <h3 class="z-10 font-serif text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">MERCEDES</h3>
+                        <h3 class="z-10 font-serif text-xl md:text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">MERCEDES</h3>
                         <span class="z-10 mt-4 text-xs uppercase tracking-[0.2em] text-luxury-red opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">View Inventory</span>
                     </div>
 
-                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
+                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[400px] md:h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
                         <div class="z-10 mb-8 p-6 bg-black/30 rounded-full backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 border border-white/5">
-                            <img src="https://cdn.simpleicons.org/audi/white" alt="Audi" class="w-16 h-16 drop-shadow-lg">
+                            <img src="https://cdn.simpleicons.org/audi/white" alt="Audi" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-lg">
                         </div>
-                        <h3 class="z-10 font-serif text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">AUDI</h3>
+                        <h3 class="z-10 font-serif text-xl md:text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">AUDI</h3>
                         <span class="z-10 mt-4 text-xs uppercase tracking-[0.2em] text-luxury-red opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">View Inventory</span>
                     </div>
 
-                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
+                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[400px] md:h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
                         <div class="z-10 mb-8 p-6 bg-black/30 rounded-full backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 border border-white/5">
-                            <img src="https://cdn.simpleicons.org/lamborghini/white" alt="Lamborghini" class="w-16 h-16 drop-shadow-lg">
+                            <img src="https://cdn.simpleicons.org/lamborghini/white" alt="Lamborghini" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-lg">
                         </div>
-                        <h3 class="z-10 font-serif text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">LAMBORGHINI</h3>
+                        <h3 class="z-10 font-serif text-xl md:text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">LAMBORGHINI</h3>
                         <span class="z-10 mt-4 text-xs uppercase tracking-[0.2em] text-luxury-red opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">View Inventory</span>
                     </div>
                 </div>
@@ -150,18 +162,18 @@
 
         <section id="inventory" class="bg-luxury-black min-h-screen py-20 px-4 md:px-10 relative">
             <div class="max-w-7xl mx-auto mb-24 text-center">
-                <h2 class="font-serif text-4xl md:text-5xl mb-4">Curated Inventory</h2>
+                <h2 class="font-serif text-3xl md:text-5xl mb-4">Curated Inventory</h2>
                 <div class="h-1 w-24 bg-luxury-red mx-auto"></div>
-                <p class="text-gray-400 mt-4 font-light">Select vehicles available for immediate viewing.</p>
+                <p class="text-gray-400 mt-4 font-light text-sm md:text-base">Select vehicles available for immediate viewing.</p>
             </div>
 
-            <div id="car-grid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-24 pt-10">
+            <div id="car-grid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20 md:gap-y-32 pt-10">
                 </div>
         </section>
 
         <footer class="bg-black py-12 border-t border-white/10">
-            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0 text-center md:text-left">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+                <div class="text-center md:text-left">
                     <span class="font-serif text-2xl font-bold tracking-widest">WAIGERA<span class="text-luxury-red">.CO</span></span>
                     <p class="text-gray-500 text-xs mt-2 uppercase tracking-wide">Nairobi, Kenya</p>
                 </div>
@@ -188,12 +200,12 @@
                         <button onclick="changeSlide(-1)" class="absolute left-4 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md transition-all opacity-0 group-hover:opacity-100"><i class="fas fa-chevron-left"></i></button>
                         <button onclick="changeSlide(1)" class="absolute right-4 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md transition-all opacity-0 group-hover:opacity-100"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                    <div class="w-full md:w-1/3 p-8 flex flex-col justify-between bg-zinc-900">
+                    <div class="w-full md:w-1/3 p-8 flex flex-col justify-between bg-zinc-900 overflow-y-auto">
                         <div>
                             <p class="text-luxury-red text-xs uppercase tracking-widest font-bold mb-2">Available Now</p>
                             <h2 id="modal-title" class="font-serif text-3xl md:text-4xl text-white mb-2 leading-none"></h2>
                             <div class="my-6 border-l-2 border-luxury-red pl-4">
-                                <p id="modal-price-ksh" class="text-2xl font-bold text-white"></p>
+                                <p id="modal-price-ksh" class="text-xl md:text-2xl font-bold text-white"></p>
                                 <p id="modal-price-usd" class="text-sm text-gray-400"></p>
                             </div>
                             <p id="modal-desc" class="text-gray-400 text-sm leading-relaxed mb-6"></p>
@@ -208,6 +220,12 @@
     </div>
 
     <script>
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
         const cars = [
             {
                 id: 1,
@@ -245,7 +263,7 @@
             {
                 id: 4,
                 title: "Mercedes-Benz S63 AMG",
-                priceKsh: "KSH 14,151,450", /* Updated Price */
+                priceKsh: "KSH 14,151,450",
                 priceUsd: "$98,500 USD",
                 desc: "The pinnacle of performance luxury. The S63 AMG offers unmatched comfort with earth-shattering power.",
                 cardImage: "images/MBS63HM.png",
@@ -256,11 +274,11 @@
             {
                 id: 5,
                 title: "VW Arteon Fastback R-Line",
-                priceKsh: "KSH 6,278,750", /* New Car */
+                priceKsh: "KSH 6,278,750",
                 priceUsd: "$43,500 USD",
                 desc: "The avant-garde Gran Turismo. This Arteon R-Line combines a sleek fastback silhouette with dynamic performance and a premium digital interior.",
                 cardImage: "images/VWSHM.png",
-                isTransparent: true, /* Pop-out enabled */
+                isTransparent: true, 
                 images: [
                     "images/VWS (1).jpg", "images/VWS (2).jpg", "images/VWS (3).jpg", 
                     "images/VWS (4).jpg", "images/VWS (5).jpg", "images/VWS (6).jpg",
@@ -274,35 +292,50 @@
         const grid = document.getElementById('car-grid');
         cars.forEach((car, index) => {
             const div = document.createElement('div');
-            div.className = "group relative mt-8"; 
+            // Added margin top specifically for pop-out effect
+            div.className = "group relative mt-16 md:mt-8"; 
             
-            // Auto-detect style based on 'isTransparent' property
+            // Responsive Image Sizing Logic
             let imgStyle = "";
+            let containerPadding = "";
+            let imgPosition = "";
+
             if(car.isTransparent) {
-                // Transparent Pop-out Style
-                 imgStyle = "w-full h-56 object-contain drop-shadow-2xl transform scale-110 group-hover:scale-125 transition-transform duration-500";
+                // POP-OUT STYLE
+                // Mobile: h-48 | Desktop: h-64 (Adjusted size)
+                imgStyle = "w-full h-48 md:h-64 object-contain drop-shadow-2xl transform scale-110 group-hover:scale-125 transition-transform duration-500";
+                
+                // Adjust vertical position for mobile vs desktop
+                imgPosition = "-top-20 md:-top-28"; 
+                
+                // Padding to push content down
+                containerPadding = "pt-24 md:pt-36";
             } else {
-                // Standard Card Style (Rounded & Shadowed)
-                 imgStyle = "w-full h-48 object-cover rounded-xl shadow-2xl shadow-black/50 group-hover:scale-105 transition-transform duration-500";
+                // STANDARD STYLE
+                // Mobile: h-48 | Desktop: h-56
+                imgStyle = "w-full h-48 md:h-56 object-cover rounded-xl shadow-2xl shadow-black/50 group-hover:scale-105 transition-transform duration-500";
+                
+                imgPosition = "-top-16 md:-top-24";
+                containerPadding = "pt-32 md:pt-36";
             }
 
             div.innerHTML = `
-                <div class="h-full bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 pt-32 relative hover:bg-zinc-900/60 hover:border-luxury-red/50 transition-all duration-300">
+                <div class="h-full bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-2xl p-6 ${containerPadding} relative hover:bg-zinc-900/60 hover:border-luxury-red/50 transition-all duration-300">
                     
-                    <div class="absolute -top-24 left-1/2 transform -translate-x-1/2 w-[90%] z-20 transition-transform duration-500 group-hover:-translate-y-4">
+                    <div class="absolute ${imgPosition} left-1/2 transform -translate-x-1/2 w-[90%] z-20 transition-transform duration-500 group-hover:-translate-y-4">
                         <img src="${car.cardImage}" alt="${car.title}" class="${imgStyle}">
                     </div>
 
-                    <div class="relative z-10 text-center mt-4">
+                    <div class="relative z-10 text-center mt-2">
                         <p class="text-luxury-red text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Premium Select</p>
-                        <h3 class="font-serif text-2xl text-white mb-2 leading-none">${car.title}</h3>
+                        <h3 class="font-serif text-xl md:text-2xl text-white mb-2 leading-none">${car.title}</h3>
                         
-                        <div class="h-0.5 w-12 bg-white/10 mx-auto my-6 group-hover:bg-luxury-red transition-colors"></div>
+                        <div class="h-0.5 w-12 bg-white/10 mx-auto my-4 md:my-6 group-hover:bg-luxury-red transition-colors"></div>
                         
                         <div class="flex justify-between items-end border-t border-white/5 pt-4">
                              <div class="text-left">
                                 <p class="text-gray-500 text-[10px] uppercase tracking-wider">Price</p>
-                                <p class="text-white font-bold text-sm">${car.priceKsh}</p>
+                                <p class="text-white font-bold text-xs md:text-sm">${car.priceKsh}</p>
                              </div>
                              <button onclick="openModal(${index})" class="text-[10px] uppercase font-bold tracking-widest text-white border-b border-white/30 pb-1 hover:text-luxury-red hover:border-luxury-red transition-all">
                                 View Specs
