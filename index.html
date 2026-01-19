@@ -50,7 +50,7 @@
             opacity: 0.6;
         }
 
-        /* Scrollbar Hiding (Cross-browser) */
+        /* Scrollbar Hiding */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -215,8 +215,8 @@
                 priceKsh: "KSH 38,500,000",
                 priceUsd: "$265,000 USD",
                 desc: "Command the road with the G63. Features the Night Package, 22-inch forged wheels, and diamond-stitched Nappa leather.",
-                // UPDATED to use your new transparent image file
-                cardImage: "images/gwagonhome (2).png", 
+                cardImage: "images/gwagonhome (2).png",
+                isTransparent: true, // Tells the system this is a pop-out image
                 images: ["images/GWAGON 1 (1).jpeg", "images/GWAGON 1 (2).jpeg", "images/GWAGON 1 (3).jpeg"],
                 features: ["V8 Biturbo", "Burmester Sound", "360° Cam", "Massage Seats"]
             },
@@ -227,6 +227,7 @@
                 priceUsd: "$86,000 USD",
                 desc: "The ultimate balance of luxury and off-road capability. This 2.8L Diesel Turbo unit is ready for any terrain.",
                 cardImage: "images/PRADO1 (1).jpeg", 
+                isTransparent: false,
                 images: ["images/PRADO1 (1).jpeg", "images/PRADO1 (2).jpeg", "images/PRADO1 (3).jpeg"],
                 features: ["2.8L Diesel", "7 Seater", "Sunroof", "Leather Trim"]
             },
@@ -237,24 +238,36 @@
                 priceUsd: "$150,000 USD",
                 desc: "Performance redefined. The RS Q8 brings track-level performance to the SUV segment with aggressive styling.",
                 cardImage: "images/Audi 1 (1).jpg",
+                isTransparent: false,
                 images: ["images/Audi 1 (1).jpg", "images/Audi 1 (2).jpg"],
                 features: ["Quattro AWD", "Ceramic Brakes", "Virtual Cockpit", "Bang & Olufsen"]
+            },
+            {
+                id: 4,
+                title: "Mercedes-Benz S63 AMG",
+                priceKsh: "KSH 26,500,000",
+                priceUsd: "$185,000 USD",
+                desc: "The pinnacle of performance luxury. The S63 AMG offers unmatched comfort with earth-shattering power.",
+                cardImage: "images/MBS63HM.png",
+                isTransparent: true, // Enables Pop-out effect for the new S63
+                images: ["images/MBS63 (1).jpg", "images/MBS63 (2).jpg", "images/MBS63 (3).jpg", "images/MBS63 (4).jpg"],
+                features: ["V8 Biturbo", "Executive Rear", "Magic Body Control", "Burmester 3D"]
             }
         ];
 
-        // NEW RENDER LOGIC FOR POP-OUT CARDS
+        // RENDER LOGIC
         const grid = document.getElementById('car-grid');
         cars.forEach((car, index) => {
             const div = document.createElement('div');
             div.className = "group relative mt-8"; 
             
-            // Conditional styling for transparent vs non-transparent images
+            // Auto-detect style based on 'isTransparent' property
             let imgStyle = "";
-            if(index === 0) {
-                // G-Wagon (Transparent): Clean pop-out
+            if(car.isTransparent) {
+                // Transparent Pop-out Style
                  imgStyle = "w-full h-56 object-contain drop-shadow-2xl transform scale-110 group-hover:scale-125 transition-transform duration-500";
             } else {
-                // Others (Background): Rounded & shadowed to look decent
+                // Standard Card Style (Rounded & Shadowed)
                  imgStyle = "w-full h-48 object-cover rounded-xl shadow-2xl shadow-black/50 group-hover:scale-105 transition-transform duration-500";
             }
 
@@ -286,7 +299,7 @@
             grid.appendChild(div);
         });
 
-        // MODAL & SLIDER LOGIC
+        // MODAL LOGIC
         let currentIndex = 0;
         let imgIndex = 0;
         const modal = document.getElementById('carModal');
