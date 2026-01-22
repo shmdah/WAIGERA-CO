@@ -51,7 +51,7 @@
             opacity: 0.6;
         }
 
-        /* Hide Scrollbar but keep functionality */
+        /* Hide Scrollbar */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -74,7 +74,7 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#inventory" class="hover:text-luxury-red transition-colors text-sm tracking-widest uppercase">Collection</a>
-                        <a href="#footer" class="px-6 py-2 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest uppercase">Contact</a>
+                        <a href="#" class="px-6 py-2 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest uppercase">Contact</a>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full left-0 top-20 shadow-2xl">
             <div class="px-6 pt-6 pb-8 space-y-6 flex flex-col text-center">
                 <a href="#inventory" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-lg tracking-widest uppercase py-3 border-b border-white/10">Collection</a>
-                <a href="#footer" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-lg tracking-widest uppercase py-3">Contact Us</a>
+                <a href="#" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-lg tracking-widest uppercase py-3">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -130,7 +130,7 @@
                 </div>
         </section>
 
-        <footer id="footer" class="bg-black py-16 border-t border-white/10">
+        <footer class="bg-black py-16 border-t border-white/10">
             <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
                 <div class="text-center md:text-left">
                     <span class="font-serif text-2xl font-bold tracking-widest">WAIGERA<span class="text-luxury-red">.CO</span></span>
@@ -158,25 +158,17 @@
 
     <div id="carModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
-        
         <div class="fixed inset-0 z-10 overflow-y-auto">
             <div class="flex min-h-full items-end md:items-center justify-center p-0 md:p-4 text-center sm:p-0">
-                
                 <div class="relative transform overflow-hidden bg-zinc-900 border-t md:border border-white/10 text-left shadow-2xl transition-all w-full h-[90vh] md:h-auto md:max-w-6xl md:rounded-lg flex flex-col md:flex-row">
-                    
                     <button onclick="closeModal()" class="absolute top-4 right-4 z-50 text-white hover:text-luxury-red transition-colors bg-black/50 rounded-full p-3 w-12 h-12 flex items-center justify-center active:scale-95">
                         <i class="fas fa-times text-xl"></i>
                     </button>
                     
                     <div class="w-full md:w-2/3 bg-black relative flex items-center justify-center group h-[35vh] md:h-[600px]">
                         <img id="modal-img" src="" alt="Car Detail" class="max-h-full max-w-full object-contain transition-opacity duration-300">
-                        
-                        <button onclick="changeSlide(-1)" class="absolute left-2 md:left-4 bg-white/10 hover:bg-white/30 text-white p-4 rounded-full backdrop-blur-md transition-all active:scale-90">
-                            <i class="fas fa-chevron-left text-lg"></i>
-                        </button>
-                        <button onclick="changeSlide(1)" class="absolute right-2 md:right-4 bg-white/10 hover:bg-white/30 text-white p-4 rounded-full backdrop-blur-md transition-all active:scale-90">
-                            <i class="fas fa-chevron-right text-lg"></i>
-                        </button>
+                        <button onclick="changeSlide(-1)" class="absolute left-2 md:left-4 bg-white/10 hover:bg-white/30 text-white p-4 rounded-full backdrop-blur-md transition-all active:scale-90"><i class="fas fa-chevron-left text-lg"></i></button>
+                        <button onclick="changeSlide(1)" class="absolute right-2 md:right-4 bg-white/10 hover:bg-white/30 text-white p-4 rounded-full backdrop-blur-md transition-all active:scale-90"><i class="fas fa-chevron-right text-lg"></i></button>
                     </div>
 
                     <div class="w-full md:w-1/3 p-6 md:p-8 flex flex-col justify-between bg-zinc-900 overflow-y-auto">
@@ -232,13 +224,11 @@
     </div>
 
     <script>
-        // MOBILE MENU TOGGLE
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
 
-        // CAR DATA (Updated with Specs for All)
         const cars = [
             {
                 id: 1,
@@ -294,33 +284,31 @@
             }
         ];
 
-        // RENDER LOGIC
         const grid = document.getElementById('car-grid');
         cars.forEach((car, index) => {
             const div = document.createElement('div');
-            // Mobile: larger margin-top for breathing room. Desktop: standard.
+            // MOBILE SPACING ADJUSTED (mt-16)
             div.className = "group relative mt-16 md:mt-16"; 
             
-            // REDUCED IMAGE SIZE & ADJUSTED POSITIONING
+            // INCREASED MOBILE IMAGE SIZE
             let imgStyle = "";
             let containerPadding = "";
             let imgPosition = "";
 
             if(car.isTransparent) {
-                // POP-OUT STYLE - REDUCED SIZE
-                // Mobile: h-28 | Desktop: h-40
-                imgStyle = "w-full h-28 md:h-40 object-contain drop-shadow-2xl transform scale-100 group-hover:scale-110 transition-transform duration-500";
+                // POP-OUT STYLE
+                // Changed mobile height from h-28 to h-44 (BIGGER)
+                imgStyle = "w-full h-44 md:h-48 object-contain drop-shadow-2xl transform scale-100 group-hover:scale-110 transition-transform duration-500";
                 
-                // Adjusted Position
-                imgPosition = "-top-12 md:-top-16"; 
+                // Adjusted Position: Moved higher (-top-16) to accommodate larger image
+                imgPosition = "-top-16 md:-top-20"; 
                 
-                // Adjusted Padding
-                containerPadding = "pt-20 md:pt-28";
+                // Adjusted Padding: Increased (pt-28) to push text down further
+                containerPadding = "pt-28 md:pt-32";
             } else {
-                // FALLBACK STYLE
-                imgStyle = "w-full h-28 md:h-40 object-cover rounded-xl shadow-2xl shadow-black/50 group-hover:scale-105 transition-transform duration-500";
-                imgPosition = "-top-10 md:-top-14";
-                containerPadding = "pt-20 md:pt-28";
+                imgStyle = "w-full h-44 md:h-48 object-cover rounded-xl shadow-2xl shadow-black/50 group-hover:scale-105 transition-transform duration-500";
+                imgPosition = "-top-14 md:-top-18";
+                containerPadding = "pt-28 md:pt-32";
             }
 
             div.innerHTML = `
@@ -351,7 +339,6 @@
             grid.appendChild(div);
         });
 
-        // MODAL LOGIC
         let currentIndex = 0;
         let imgIndex = 0;
         const modal = document.getElementById('carModal');
@@ -366,14 +353,12 @@
             document.getElementById('modal-price-usd').innerText = car.priceUsd;
             document.getElementById('modal-desc').innerText = car.desc;
             
-            // Populate Specs
             document.getElementById('spec-year').innerText = car.specs.year;
             document.getElementById('spec-mileage').innerText = car.specs.mileage;
             document.getElementById('spec-trans').innerText = car.specs.trans;
             document.getElementById('spec-engine').innerText = car.specs.engine;
 
-            // Update WhatsApp Link
-            const waNumber = "254700000000"; // REPLACE WITH YOUR NUMBER
+            const waNumber = "254700000000"; 
             const message = encodeURIComponent(`Hello, I am interested in the ${car.title} listed on Waigera Co.`);
             document.getElementById('whatsapp-btn').href = `https://wa.me/${waNumber}?text=${message}`;
 
