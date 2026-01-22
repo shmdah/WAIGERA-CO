@@ -18,6 +18,7 @@
                         'luxury-red': '#8a1c1c',
                         'luxury-black': '#050505',
                         'glass': 'rgba(255, 255, 255, 0.05)',
+                        'whatsapp-green': '#25D366',
                     },
                     fontFamily: {
                         'serif': ['"Playfair Display"', 'serif'],
@@ -32,7 +33,7 @@
     </script>
 
     <style>
-        /* Custom Parallax & Utilities */
+        /* Base Styles */
         body { background-color: #050505; }
         
         /* Fixed Video Background */
@@ -50,7 +51,7 @@
             opacity: 0.6;
         }
 
-        /* Scrollbar Hiding */
+        /* Hide Scrollbar but keep functionality */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -72,25 +73,23 @@
                 
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#brands" class="hover:text-luxury-red transition-colors text-sm tracking-widest uppercase">Brands</a>
                         <a href="#inventory" class="hover:text-luxury-red transition-colors text-sm tracking-widest uppercase">Collection</a>
-                        <a href="#" class="px-6 py-2 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest uppercase">Contact</a>
+                        <a href="#footer" class="px-6 py-2 border border-white/30 hover:bg-white hover:text-black transition-all duration-300 text-sm tracking-widest uppercase">Contact</a>
                     </div>
                 </div>
 
                 <div class="-mr-2 flex md:hidden">
-                    <button onclick="toggleMobileMenu()" class="text-white hover:text-luxury-red p-2 text-2xl focus:outline-none">
+                    <button onclick="toggleMobileMenu()" class="text-white hover:text-luxury-red p-4 text-2xl focus:outline-none">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full left-0 top-20">
-            <div class="px-4 pt-4 pb-6 space-y-4 flex flex-col text-center">
-                <a href="#brands" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-sm tracking-widest uppercase py-2">Brands</a>
-                <a href="#inventory" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-sm tracking-widest uppercase py-2">Collection</a>
-                <a href="#" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-sm tracking-widest uppercase py-2">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 absolute w-full left-0 top-20 shadow-2xl">
+            <div class="px-6 pt-6 pb-8 space-y-6 flex flex-col text-center">
+                <a href="#inventory" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-lg tracking-widest uppercase py-3 border-b border-white/10">Collection</a>
+                <a href="#footer" onclick="toggleMobileMenu()" class="block text-white hover:text-luxury-red text-lg tracking-widest uppercase py-3">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -108,7 +107,7 @@
                 </p>
                 <div class="pt-10">
                     <button onclick="document.getElementById('inventory').scrollIntoView({behavior: 'smooth'})" 
-                        class="group relative px-8 py-3 overflow-hidden bg-transparent border border-white/40 text-white shadow-lg transition-all duration-300 hover:border-luxury-red">
+                        class="group relative px-8 py-4 overflow-hidden bg-transparent border border-white/40 text-white shadow-lg transition-all duration-300 hover:border-luxury-red rounded-sm active:scale-95">
                         <span class="absolute inset-0 w-full h-full bg-luxury-red opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></span>
                         <span class="relative flex items-center gap-3 tracking-widest uppercase text-sm font-semibold">
                             Explore Fleet <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
@@ -118,70 +117,40 @@
             </div>
         </section>
 
-        <section id="brands" class="py-24 relative z-20">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="font-serif text-3xl md:text-4xl">Select Your Brand</h2>
-                    <div class="h-0.5 w-16 bg-luxury-red mx-auto mt-4"></div>
-                </div>
-
-                <div class="flex overflow-x-auto gap-4 md:gap-8 pb-8 snap-x snap-mandatory no-scrollbar md:justify-center">
-                    
-                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[400px] md:h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
-                        <div class="z-10 mb-8 p-6 bg-black/30 rounded-full backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 border border-white/5">
-                            <img src="https://cdn.simpleicons.org/mercedes/white" alt="Mercedes" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-lg">
-                        </div>
-                        <h3 class="z-10 font-serif text-xl md:text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">MERCEDES</h3>
-                        <span class="z-10 mt-4 text-xs uppercase tracking-[0.2em] text-luxury-red opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">View Inventory</span>
-                    </div>
-
-                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[400px] md:h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
-                        <div class="z-10 mb-8 p-6 bg-black/30 rounded-full backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 border border-white/5">
-                            <img src="https://cdn.simpleicons.org/audi/white" alt="Audi" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-lg">
-                        </div>
-                        <h3 class="z-10 font-serif text-xl md:text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">AUDI</h3>
-                        <span class="z-10 mt-4 text-xs uppercase tracking-[0.2em] text-luxury-red opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">View Inventory</span>
-                    </div>
-
-                    <div class="flex-shrink-0 w-[85vw] md:w-[400px] snap-center group relative h-[400px] md:h-[500px] bg-glass backdrop-blur-md border border-white/10 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-luxury-red/50 cursor-pointer rounded-sm">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
-                        <div class="z-10 mb-8 p-6 bg-black/30 rounded-full backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 border border-white/5">
-                            <img src="https://cdn.simpleicons.org/lamborghini/white" alt="Lamborghini" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-lg">
-                        </div>
-                        <h3 class="z-10 font-serif text-xl md:text-2xl tracking-widest opacity-80 group-hover:opacity-100 transition-opacity">LAMBORGHINI</h3>
-                        <span class="z-10 mt-4 text-xs uppercase tracking-[0.2em] text-luxury-red opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">View Inventory</span>
-                    </div>
-                </div>
-                <p class="md:hidden text-center text-xs text-gray-500 uppercase tracking-widest mt-2 animate-pulse">Swipe to Explore</p>
-            </div>
-        </section>
-
         <div class="h-32 bg-gradient-to-b from-transparent to-luxury-black"></div>
 
         <section id="inventory" class="bg-luxury-black min-h-screen py-20 px-4 md:px-10 relative">
-            <div class="max-w-7xl mx-auto mb-24 text-center">
+            <div class="max-w-7xl mx-auto mb-20 text-center">
                 <h2 class="font-serif text-3xl md:text-5xl mb-4">Curated Inventory</h2>
                 <div class="h-1 w-24 bg-luxury-red mx-auto"></div>
                 <p class="text-gray-400 mt-4 font-light text-sm md:text-base">Select vehicles available for immediate viewing.</p>
             </div>
 
-            <div id="car-grid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20 md:gap-y-32 pt-10">
+            <div id="car-grid" class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-24 md:gap-y-32 pt-10">
                 </div>
         </section>
 
-        <footer class="bg-black py-12 border-t border-white/10">
-            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+        <footer id="footer" class="bg-black py-16 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-0">
                 <div class="text-center md:text-left">
                     <span class="font-serif text-2xl font-bold tracking-widest">WAIGERA<span class="text-luxury-red">.CO</span></span>
                     <p class="text-gray-500 text-xs mt-2 uppercase tracking-wide">Nairobi, Kenya</p>
                 </div>
-                <div class="flex space-x-6 text-gray-400">
-                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
-                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                
+                <div class="flex space-x-10 text-gray-400">
+                    <a href="https://www.youtube.com/@waigera" target="_blank" class="hover:text-luxury-red transition-colors transform hover:scale-110 p-2">
+                        <i class="fab fa-youtube text-3xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/_waigera/" target="_blank" class="hover:text-luxury-red transition-colors transform hover:scale-110 p-2">
+                        <i class="fab fa-instagram text-3xl"></i>
+                    </a>
+                    <a href="https://x.com/_waigera" target="_blank" class="hover:text-luxury-red transition-colors transform hover:scale-110 p-2">
+                        <i class="fab fa-twitter text-3xl"></i>
+                    </a>
                 </div>
+            </div>
+            <div class="text-center text-gray-600 text-[10px] mt-10 uppercase tracking-widest">
+                &copy; 2026 Waigera Co. All rights reserved.
             </div>
         </footer>
 
@@ -189,30 +158,73 @@
 
     <div id="carModal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-black/90 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
         <div class="fixed inset-0 z-10 overflow-y-auto">
-            <div class="flex min-h-full items-center justify-center p-0 md:p-4 text-center sm:p-0">
-                <div class="relative transform overflow-hidden bg-zinc-900 border border-white/10 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-6xl w-full h-screen md:h-auto md:rounded-lg flex flex-col md:flex-row">
-                    <button onclick="closeModal()" class="absolute top-4 right-4 z-50 text-white hover:text-luxury-red transition-colors bg-black/50 rounded-full p-2 w-10 h-10 flex items-center justify-center">
-                        <i class="fas fa-times"></i>
+            <div class="flex min-h-full items-end md:items-center justify-center p-0 md:p-4 text-center sm:p-0">
+                
+                <div class="relative transform overflow-hidden bg-zinc-900 border-t md:border border-white/10 text-left shadow-2xl transition-all w-full h-[90vh] md:h-auto md:max-w-6xl md:rounded-lg flex flex-col md:flex-row">
+                    
+                    <button onclick="closeModal()" class="absolute top-4 right-4 z-50 text-white hover:text-luxury-red transition-colors bg-black/50 rounded-full p-3 w-12 h-12 flex items-center justify-center active:scale-95">
+                        <i class="fas fa-times text-xl"></i>
                     </button>
-                    <div class="w-full md:w-2/3 bg-black relative flex items-center justify-center group h-[40vh] md:h-[600px]">
+                    
+                    <div class="w-full md:w-2/3 bg-black relative flex items-center justify-center group h-[35vh] md:h-[600px]">
                         <img id="modal-img" src="" alt="Car Detail" class="max-h-full max-w-full object-contain transition-opacity duration-300">
-                        <button onclick="changeSlide(-1)" class="absolute left-4 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md transition-all opacity-0 group-hover:opacity-100"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="changeSlide(1)" class="absolute right-4 bg-white/10 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-md transition-all opacity-0 group-hover:opacity-100"><i class="fas fa-chevron-right"></i></button>
+                        
+                        <button onclick="changeSlide(-1)" class="absolute left-2 md:left-4 bg-white/10 hover:bg-white/30 text-white p-4 rounded-full backdrop-blur-md transition-all active:scale-90">
+                            <i class="fas fa-chevron-left text-lg"></i>
+                        </button>
+                        <button onclick="changeSlide(1)" class="absolute right-2 md:right-4 bg-white/10 hover:bg-white/30 text-white p-4 rounded-full backdrop-blur-md transition-all active:scale-90">
+                            <i class="fas fa-chevron-right text-lg"></i>
+                        </button>
                     </div>
-                    <div class="w-full md:w-1/3 p-8 flex flex-col justify-between bg-zinc-900 overflow-y-auto">
+
+                    <div class="w-full md:w-1/3 p-6 md:p-8 flex flex-col justify-between bg-zinc-900 overflow-y-auto">
                         <div>
                             <p class="text-luxury-red text-xs uppercase tracking-widest font-bold mb-2">Available Now</p>
-                            <h2 id="modal-title" class="font-serif text-3xl md:text-4xl text-white mb-2 leading-none"></h2>
-                            <div class="my-6 border-l-2 border-luxury-red pl-4">
-                                <p id="modal-price-ksh" class="text-xl md:text-2xl font-bold text-white"></p>
-                                <p id="modal-price-usd" class="text-sm text-gray-400"></p>
+                            <h2 id="modal-title" class="font-serif text-2xl md:text-4xl text-white mb-2 leading-none"></h2>
+                            <div class="my-4 md:my-6 border-l-2 border-luxury-red pl-4">
+                                <p id="modal-price-ksh" class="text-lg md:text-2xl font-bold text-white"></p>
+                                <p id="modal-price-usd" class="text-xs text-gray-400"></p>
                             </div>
-                            <p id="modal-desc" class="text-gray-400 text-sm leading-relaxed mb-6"></p>
-                            <h4 class="text-white text-sm uppercase tracking-wider mb-3 font-semibold">Key Specs</h4>
-                            <ul id="modal-features" class="grid grid-cols-2 gap-y-2 gap-x-4 text-xs text-gray-400 mb-8"></ul>
+                            
+                            <p id="modal-desc" class="text-gray-400 text-xs md:text-sm leading-relaxed mb-6"></p>
+
+                            <div class="grid grid-cols-4 gap-2 md:gap-4 mb-6 text-center">
+                                <div class="bg-black/40 p-2 rounded border border-white/5">
+                                    <i class="fas fa-calendar text-luxury-red mb-1 block text-sm"></i>
+                                    <p class="text-[8px] text-gray-500 uppercase">Year</p>
+                                    <p id="spec-year" class="text-[10px] md:text-xs font-bold text-white"></p>
+                                </div>
+                                <div class="bg-black/40 p-2 rounded border border-white/5">
+                                    <i class="fas fa-tachometer-alt text-luxury-red mb-1 block text-sm"></i>
+                                    <p class="text-[8px] text-gray-500 uppercase">Mileage</p>
+                                    <p id="spec-mileage" class="text-[10px] md:text-xs font-bold text-white"></p>
+                                </div>
+                                <div class="bg-black/40 p-2 rounded border border-white/5">
+                                    <i class="fas fa-cogs text-luxury-red mb-1 block text-sm"></i>
+                                    <p class="text-[8px] text-gray-500 uppercase">Trans</p>
+                                    <p id="spec-trans" class="text-[10px] md:text-xs font-bold text-white"></p>
+                                </div>
+                                <div class="bg-black/40 p-2 rounded border border-white/5">
+                                    <i class="fas fa-gas-pump text-luxury-red mb-1 block text-sm"></i>
+                                    <p class="text-[8px] text-gray-500 uppercase">Engine</p>
+                                    <p id="spec-engine" class="text-[10px] md:text-xs font-bold text-white"></p>
+                                </div>
+                            </div>
+
+                            <h4 class="text-white text-xs uppercase tracking-wider mb-2 font-semibold">Key Features</h4>
+                            <ul id="modal-features" class="grid grid-cols-2 gap-y-1 gap-x-2 text-[10px] md:text-xs text-gray-400 mb-6"></ul>
                         </div>
-                        <button class="w-full bg-white text-black py-4 uppercase tracking-widest text-xs font-bold hover:bg-luxury-red hover:text-white transition-colors duration-300">Request Test Drive</button>
+
+                        <div class="flex flex-col gap-3 mt-auto">
+                            <a id="whatsapp-btn" href="#" target="_blank" class="w-full bg-whatsapp-green text-white py-4 rounded-sm uppercase tracking-widest text-xs font-bold hover:brightness-110 transition-all duration-300 text-center flex items-center justify-center gap-2 active:scale-95 shadow-lg">
+                                <i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp
+                            </a>
+                            <button class="w-full bg-white text-black py-4 rounded-sm uppercase tracking-widest text-xs font-bold hover:bg-luxury-red hover:text-white transition-colors duration-300 active:scale-95">
+                                Request Call Back
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -226,6 +238,7 @@
             menu.classList.toggle('hidden');
         }
 
+        // CAR DATA (Updated with Specs for All)
         const cars = [
             {
                 id: 1,
@@ -236,29 +249,8 @@
                 cardImage: "images/gwagonhome (2).png",
                 isTransparent: true,
                 images: ["images/GWAGON 1 (1).jpeg", "images/GWAGON 1 (2).jpeg", "images/GWAGON 1 (3).jpeg"],
-                features: ["V8 Biturbo", "Burmester Sound", "360° Cam", "Massage Seats"]
-            },
-            {
-                id: 2,
-                title: "Toyota Prado J150",
-                priceKsh: "KSH 12,500,000",
-                priceUsd: "$86,000 USD",
-                desc: "The ultimate balance of luxury and off-road capability. This 2.8L Diesel Turbo unit is ready for any terrain.",
-                cardImage: "images/PRADO1 (1).jpeg", 
-                isTransparent: false,
-                images: ["images/PRADO1 (1).jpeg", "images/PRADO1 (2).jpeg", "images/PRADO1 (3).jpeg"],
-                features: ["2.8L Diesel", "7 Seater", "Sunroof", "Leather Trim"]
-            },
-            {
-                id: 3,
-                title: "Audi RS Q8",
-                priceKsh: "KSH 22,000,000",
-                priceUsd: "$150,000 USD",
-                desc: "Performance redefined. The RS Q8 brings track-level performance to the SUV segment with aggressive styling.",
-                cardImage: "images/Audi 1 (1).jpg",
-                isTransparent: false,
-                images: ["images/Audi 1 (1).jpg", "images/Audi 1 (2).jpg"],
-                features: ["Quattro AWD", "Ceramic Brakes", "Virtual Cockpit", "Bang & Olufsen"]
+                features: ["V8 Biturbo", "Burmester Sound", "360° Cam", "Massage Seats"],
+                specs: { year: "2021", mileage: "3,500 kms", trans: "Automatic", engine: "4.0L V8" }
             },
             {
                 id: 4,
@@ -269,14 +261,15 @@
                 cardImage: "images/MBS63HM.png",
                 isTransparent: true, 
                 images: ["images/MBS63 (1).jpg", "images/MBS63 (2).jpg", "images/MBS63 (3).jpg", "images/MBS63 (4).jpg"],
-                features: ["V8 Biturbo", "Executive Rear", "Magic Body Control", "Burmester 3D"]
+                features: ["Executive Rear", "Magic Body Control", "Burmester 3D", "Heads-Up Display"],
+                specs: { year: "2019", mileage: "28,000 kms", trans: "Automatic", engine: "4.0L V8" }
             },
             {
                 id: 5,
-                title: "VW Arteon Fastback R-Line",
+                title: "VW Arteon R-Line",
                 priceKsh: "KSH 6,278,750",
                 priceUsd: "$43,500 USD",
-                desc: "The avant-garde Gran Turismo. This Arteon R-Line combines a sleek fastback silhouette with dynamic performance and a premium digital interior.",
+                desc: "The avant-garde Gran Turismo. This Arteon R-Line combines a sleek fastback silhouette with dynamic performance.",
                 cardImage: "images/VWSHM.png",
                 isTransparent: true, 
                 images: [
@@ -284,7 +277,20 @@
                     "images/VWS (4).jpg", "images/VWS (5).jpg", "images/VWS (6).jpg",
                     "images/VWS (7).jpg", "images/VWS (8).jpg", "images/VWS (9).jpg"
                 ],
-                features: ["R-Line Styling", "4MOTION", "Digital Cockpit", "Panoramic Roof"]
+                features: ["R-Line Styling", "4MOTION", "Digital Cockpit", "Panoramic Roof"],
+                specs: { year: "2021", mileage: "74,200 kms", trans: "Automatic", engine: "2.0L TSI" }
+            },
+            {
+                id: 6,
+                title: "BMW M3 Competition",
+                priceKsh: "KSH 11,400,000",
+                priceUsd: "$79,000 USD",
+                desc: "The icon of sports sedans. The M3 Competition delivers track-ready performance with aggressive styling.",
+                cardImage: "images/BMWM3HM (1).png",
+                isTransparent: true, 
+                images: ["images/BMWM3 (1).jpg", "images/BMWM3 (2).jpg", "images/BMWM3 (3).jpg"],
+                features: ["M xDrive", "Carbon Bucket Seats", "Laser Lights", "Harman Kardon"],
+                specs: { year: "2021", mileage: "15,000 kms", trans: "Automatic", engine: "3.0L I6" }
             }
         ];
 
@@ -292,31 +298,29 @@
         const grid = document.getElementById('car-grid');
         cars.forEach((car, index) => {
             const div = document.createElement('div');
-            // Added margin top specifically for pop-out effect
-            div.className = "group relative mt-16 md:mt-8"; 
+            // Mobile: larger margin-top for breathing room. Desktop: standard.
+            div.className = "group relative mt-16 md:mt-16"; 
             
-            // Responsive Image Sizing Logic
+            // REDUCED IMAGE SIZE & ADJUSTED POSITIONING
             let imgStyle = "";
             let containerPadding = "";
             let imgPosition = "";
 
             if(car.isTransparent) {
-                // POP-OUT STYLE
-                // Mobile: h-48 | Desktop: h-64 (Adjusted size)
-                imgStyle = "w-full h-48 md:h-64 object-contain drop-shadow-2xl transform scale-110 group-hover:scale-125 transition-transform duration-500";
+                // POP-OUT STYLE - REDUCED SIZE
+                // Mobile: h-28 | Desktop: h-40
+                imgStyle = "w-full h-28 md:h-40 object-contain drop-shadow-2xl transform scale-100 group-hover:scale-110 transition-transform duration-500";
                 
-                // Adjust vertical position for mobile vs desktop
-                imgPosition = "-top-20 md:-top-28"; 
+                // Adjusted Position
+                imgPosition = "-top-12 md:-top-16"; 
                 
-                // Padding to push content down
-                containerPadding = "pt-24 md:pt-36";
+                // Adjusted Padding
+                containerPadding = "pt-20 md:pt-28";
             } else {
-                // STANDARD STYLE
-                // Mobile: h-48 | Desktop: h-56
-                imgStyle = "w-full h-48 md:h-56 object-cover rounded-xl shadow-2xl shadow-black/50 group-hover:scale-105 transition-transform duration-500";
-                
-                imgPosition = "-top-16 md:-top-24";
-                containerPadding = "pt-32 md:pt-36";
+                // FALLBACK STYLE
+                imgStyle = "w-full h-28 md:h-40 object-cover rounded-xl shadow-2xl shadow-black/50 group-hover:scale-105 transition-transform duration-500";
+                imgPosition = "-top-10 md:-top-14";
+                containerPadding = "pt-20 md:pt-28";
             }
 
             div.innerHTML = `
@@ -327,7 +331,7 @@
                     </div>
 
                     <div class="relative z-10 text-center mt-2">
-                        <p class="text-luxury-red text-[10px] font-bold tracking-[0.2em] uppercase mb-3">Premium Select</p>
+                        <p class="text-luxury-red text-[10px] font-bold tracking-[0.2em] uppercase mb-2 md:mb-3">Premium Select</p>
                         <h3 class="font-serif text-xl md:text-2xl text-white mb-2 leading-none">${car.title}</h3>
                         
                         <div class="h-0.5 w-12 bg-white/10 mx-auto my-4 md:my-6 group-hover:bg-luxury-red transition-colors"></div>
@@ -361,6 +365,18 @@
             document.getElementById('modal-price-ksh').innerText = car.priceKsh;
             document.getElementById('modal-price-usd').innerText = car.priceUsd;
             document.getElementById('modal-desc').innerText = car.desc;
+            
+            // Populate Specs
+            document.getElementById('spec-year').innerText = car.specs.year;
+            document.getElementById('spec-mileage').innerText = car.specs.mileage;
+            document.getElementById('spec-trans').innerText = car.specs.trans;
+            document.getElementById('spec-engine').innerText = car.specs.engine;
+
+            // Update WhatsApp Link
+            const waNumber = "254700000000"; // REPLACE WITH YOUR NUMBER
+            const message = encodeURIComponent(`Hello, I am interested in the ${car.title} listed on Waigera Co.`);
+            document.getElementById('whatsapp-btn').href = `https://wa.me/${waNumber}?text=${message}`;
+
             const feats = document.getElementById('modal-features');
             feats.innerHTML = '';
             car.features.forEach(f => {
